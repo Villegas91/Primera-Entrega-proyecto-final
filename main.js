@@ -4,11 +4,16 @@ alert("Registrese para acceder al carrito de compras");
 
 let ingreso = prompt("Elija un usuario para su registro");
 
+//BUCLE PARA OBLIGAR AL USUARIO A REGISTRARSE
+//CUALQUIER NOMBRE SERRA VALIDO EXCEPTO EL CAMPO VACIO
+
 while (ingreso === "") {
   alert("Debe ingresar un usuario para acceder al carrito de compras");
   ingreso = prompt("Elija un usuario  para su registro");
 }
 alert("Bienvenido al carrito de compras " + ingreso);
+
+// ARRAYS DE PRODUCTOS
 
 class producto {
   constructor(nombre, precio) {
@@ -23,13 +28,15 @@ const producto3 = new producto("televisor", "150");
 const producto4 = new producto("lampara", "25");
 const producto5 = new producto("cocina", "200");
 
+// FUNCION PARA DETERMINAR EL COSTO DE CADA PRODUCTO
+
 function selecProd() {
   let costo = prompt(
     "Seleccione un producto de la lista \n -silla \n -mesa \n -televisor \n -lampara \n -cocina "
   );
 
   while (
-    costo == "" ||
+    costo === "" ||
     (costo != producto1.nombre &&
       costo != producto2.nombre &&
       costo != producto3.nombre &&
@@ -74,6 +81,7 @@ function selecProd() {
   return costo;
 }
 
+//GENERAMOS UN ARRAY CON LOS PRECIOS DE CADA PRODUCTO SELECCIONADO
 const listaCosto = [];
 let cantidad = 5;
 do {
@@ -82,9 +90,13 @@ do {
   console.log(listaCosto);
 } while (listaCosto.length != cantidad);
 
+//SUMA DEL ARRAY listaCosto MEDIANTE REDUCE
+
 const total = listaCosto.reduce((a, b) => a + b, 0);
 alert("El total de tu compra es $ " + total);
 console.log(total);
+
+// ARRAY DE MEDIOS DE PAGO
 
 class medioDePago {
   constructor(id, nombre) {
@@ -97,13 +109,15 @@ const medioDePago1 = new medioDePago(1, "debito");
 const medioDePago2 = new medioDePago(2, "credito");
 const medioDePago3 = new medioDePago(3, "efectivo");
 
+//BUCLE PARA DETERMINAR EL MEDIO DE PAGO SELECCIONADO
+
 let pago = Number(
   prompt(
     "Elija un medio de pago: \n 1- Tarjeta de débito \n 2- Tarjeta de crédito \n 3-Efectivo"
   )
 );
 while (
-  pago == "" ||
+  pago === "" ||
   (pago != medioDePago1.id &&
     pago != medioDePago2.id &&
     pago != medioDePago3.id)
